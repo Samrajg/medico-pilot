@@ -42,16 +42,7 @@ export default function Navbar() {
             <Link href="/careers" className="hover:text-[#051249] transition">Careers</Link>
             <Link href="/contact" className="hover:text-[#051249] transition">Contact Us</Link>
 
-            <button className="bg-[#0071BC] text-white px-4 py-2 text-xs lg:text-sm rounded-full shadow-md hover:opacity-90 transition">
-              Login
-            </button>
 
-            <Link
-              href="/register"
-              className="bg-green-600 text-white px-4 py-2 text-xs lg:text-sm rounded-full shadow-md hover:opacity-90 transition"
-            >
-              Register
-            </Link>
           </div>
         </div>
 
@@ -85,17 +76,6 @@ export default function Navbar() {
             <Link href="/webinars" className="hover:text-[#051249] transition">Webinars</Link>
             <Link href="/careers" className="hover:text-[#051249] transition">Careers</Link>
             <Link href="/contact" className="hover:text-[#051249] transition">Contact Us</Link>
-
-            <button className="bg-[#0071BC] text-white px-4 py-2 rounded-full shadow-md hover:opacity-90 transition">
-              Login
-            </button>
-
-            <Link
-              href="/register"
-              className="bg-green-600 text-white px-4 py-2 rounded-full shadow-md hover:opacity-90 transition"
-            >
-              Register
-            </Link>
           </div>
         </div>
       )}
