@@ -8,10 +8,10 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className="bg-[#051249] text-black sticky top-0 z-50 py-4 md:py-6">
+    <nav className="bg-[var(--secondary)] text-black sticky top-0 z-50 py-4 lg:py-6 font-poppins">
       <div className="container mx-auto px-4 flex justify-between items-center">
-        
-        {/* Left Logo */}
+
+        {/* Logo */}
         <Link href="/" className="flex items-center space-x-2">
           <Image
             src="/logo-placeholder.png"
@@ -20,37 +20,53 @@ export default function Navbar() {
             height={40}
             className="rounded"
           />
-          <span className="text-base md:text-lg font-bold text-white">
+          <span className="text-base lg:text-lg font-bold text-white">
             Medico Pilot
           </span>
         </Link>
 
-        {/* Desktop Menu Container */}
-        <div className="hidden md:flex bg-white shadow-[0_4px_20px_rgba(0,0,0,0.2)] 
-        rounded-full px-6 lg:px-10 py-3 lg:py-4 items-center space-x-6 lg:space-x-10">
+        {/* Desktop Menu */}
+        <div className="hidden lg:flex bg-white shadow-[0_4px_20px_rgba(0,0,0,0.2)]
+        rounded-full px-6 xl:px-10 py-3 xl:py-4 items-center space-x-3 xl:space-x-6">
 
-          <div className="flex items-center space-x-6 lg:space-x-10 font-semibold text-sm lg:text-base">
+          {/* HOME */}
+          <Link
+            href="/"
+            className="
+              px-4 py-2 rounded-full text-[var(--secondary)] text-xs xl:text-sm font-semibold
+              transition-all duration-200
+              hover:bg-[var(--secondary)] hover:text-white
+            "
+          >
+            Home
+          </Link>
+
+          {[
+            { name: "About", href: "/about" },
+            { name: "Plan & Pricing", href: "/pricing" },
+            { name: "Webinars", href: "/webinars" },
+            { name: "Careers", href: "/careers" },
+            { name: "Contact Us", href: "/contact" },
+          ].map((item) => (
             <Link
-              href="/"
-              className="bg-[#051249] text-white px-4 py-2 text-xs lg:text-sm rounded-full shadow-md"
+              key={item.href}
+              href={item.href}
+              className="
+                px-4 py-2 rounded-full text-[var(--secondary)] text-xs xl:text-sm font-semibold
+                transition-all duration-200
+                hover:bg-[var(--secondary)] hover:text-white
+              "
             >
-              Home
+              {item.name}
             </Link>
-            <Link href="/about" className="hover:text-[#051249] transition">About</Link>
-            <Link href="/pricing" className="hover:text-[#051249] transition">Plan & Pricing</Link>
-            <Link href="/webinars" className="hover:text-[#051249] transition">Webinars</Link>
-            <Link href="/careers" className="hover:text-[#051249] transition">Careers</Link>
-            <Link href="/contact" className="hover:text-[#051249] transition">Contact Us</Link>
+          ))}
 
-
-          </div>
         </div>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile Hamburger */}
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="md:hidden text-white"
-          aria-label="Toggle menu"
+          className="lg:hidden text-white"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -66,16 +82,16 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Menu (Dynamic + Smooth + Compact) */}
+      {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden bg-white mt-3 border-t border-blue-800 py-4 animate-fadeIn">
+        <div className="lg:hidden bg-white mt-3 border-t-2 border-[var(--primary)] py-4 animate-fadeIn">
           <div className="flex flex-col space-y-4 px-6 text-black font-medium text-sm">
-            <Link href="/" className="hover:text-[#051249] transition">Home</Link>
-            <Link href="/about" className="hover:text-[#051249] transition">About</Link>
-            <Link href="/pricing" className="hover:text-[#051249] transition">Plan & Pricing</Link>
-            <Link href="/webinars" className="hover:text-[#051249] transition">Webinars</Link>
-            <Link href="/careers" className="hover:text-[#051249] transition">Careers</Link>
-            <Link href="/contact" className="hover:text-[#051249] transition">Contact Us</Link>
+            <Link href="/" className="hover:text-[var(--secondary)] transition">Home</Link>
+            <Link href="/about" className="hover:text-[var(--secondary)] transition">About</Link>
+            <Link href="/pricing" className="hover:text-[var(--secondary)] transition">Plan & Pricing</Link>
+            <Link href="/webinars" className="hover:text-[var(--secondary)] transition">Webinars</Link>
+            <Link href="/careers" className="hover:text-[var(--secondary)] transition">Careers</Link>
+            <Link href="/contact" className="hover:text-[var(--secondary)] transition">Contact Us</Link>
           </div>
         </div>
       )}
